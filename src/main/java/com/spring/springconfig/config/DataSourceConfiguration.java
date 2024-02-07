@@ -1,5 +1,7 @@
 package com.spring.springconfig.config;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
@@ -11,6 +13,7 @@ import javax.sql.DataSource;
 public class DataSourceConfiguration {
 
     @Bean
+    @ConditionalOnProperty(name = "custom.datasource.enabled", havingValue = "true", matchIfMissing = true)
     public DataSource getDataSource(final DataSourceProperties dataSourceProperties) {
         return DataSourceBuilder
                 .create()

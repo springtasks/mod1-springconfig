@@ -4,3 +4,7 @@ spring:
     url: jdbc:h2:mem:default
     username: username
     password: pass123
+
+custom:
+  datasource:
+    enabled : true
