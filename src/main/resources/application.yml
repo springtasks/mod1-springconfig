@@ -8,3 +8,9 @@ spring:
 custom:
   datasource:
     enabled : true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, appInfo
